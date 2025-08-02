@@ -11,7 +11,7 @@ st.title("🏡 Paris Housing Price Predictor")
 
 st.markdown(
     "Provide property details and get an estimated price using the **trained pipeline** "
-    "(`paris_price_model.pkl`) which includes preprocessing and a tree-based model."
+    "(`paris_price_model_gz.pkl`) which includes preprocessing and a tree-based model."
 )
 
 @st.cache_resource
@@ -19,7 +19,7 @@ def load_pipeline(path: str):
     return joblib.load(path)
 
 # Path to saved pipeline (exported from notebook)
-model_path = st.sidebar.text_input("Model file path", "paris_price_model.pkl")
+model_path = st.sidebar.text_input("Model file path", "paris_price_model_gz.pkl")
 try:
     pipe = load_pipeline(model_path)
     st.sidebar.success("Model loaded ✅")
